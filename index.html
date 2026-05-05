@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Library</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- 1. Checkbox -->
+    <input type="checkbox" id="menu-toggle">
+
+    <!-- 2. Overlay and panel RIGHT after checkbox -->
+    <label for="menu-toggle" class="menu-overlay"></label>
+
+    <!-- Panel header with title and close button -->
+    <div class="menu-panel">
+        <div class="menu-panel-header">
+            <h2>Menu</h2>
+            <label for="menu-toggle" class="menu-close">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+        <!-- Mga navigation links -->
+        <a href="index.html" class="menu-item">Home <span class="menu-chevron">›</span></a>
+        <a href="favorites.html" class="menu-item">Favorites <span class="menu-chevron">›</span></a>
+        <a href="#" class="menu-item">Profile <span class="menu-chevron">›</span></a>
+        <a href="#" class="menu-item">Settings <span class="menu-chevron">›</span></a>
+
+        <div class="menu-divider"></div>
+        <div class="menu-section-label">Genre</div>
+
+        <!-- Genre navigation links -->
+        <a href="romance.html" class="menu-item">Romance <span class="menu-chevron">›</span></a>
+        <a href="action.html" class="menu-item">Action <span class="menu-chevron">›</span></a>
+        <a href="sports.html" class="menu-item">Sports <span class="menu-chevron">›</span></a>
+        <a href="seinen.html" class="menu-item">Seinen <span class="menu-chevron">›</span></a>
+        <a href="adventure.html" class="menu-item">Adventure <span class="menu-chevron">›</span></a>
+    </div>
+
+    <!-- 3. Rest of the page -->
+    <header class="app-header">
+        <div class="header-top">
+            <h1>My Library</h1>
+            <label for="menu-toggle" class="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search Manga...">
+        </div>
+    </header>
+
+    <div class="genres">
+
+        <a href="romance.html" class="genre-card">
+            <img src="image/apothecarydiaries_1920x944_banner_231018_--fvV6QQS0b.webp" alt="Romance">
+            <span>Romance</span>
+            <div class="chevron">&#8250;</div>
+        </a>
+
+        <a href="action.html" class="genre-card">
+            <img src="image/GREzFTSXkAACsFz.png" alt="Action">
+            <span>Action</span>
+            <div class="chevron">&#8250;</div>
+        </a>
+
+        <a href="sports.html" class="genre-card">
+            <img src="image/haikfeat-min.webp" alt="Sports">
+            <span>Sports</span>
+            <div class="chevron">&#8250;</div>
+        </a>
+
+        <a href="seinen.html" class="genre-card">
+            <img src="image/eqtrkqy7kyqb1.jpg" alt="Seinen">
+            <span>Seinen</span>
+            <div class="chevron">&#8250;</div>
+        </a>
+
+        <a href="adventure.html" class="genre-card">
+            <img src="image/one-piece-luffy-street-art-captain-desktop-wallpaper-preview.jpg" alt="Adventure">
+            <span>Adventure</span>
+            <div class="chevron">&#8250;</div>
+        </a>
+
+    </div>
+
+</body>
+
+</html>
+```

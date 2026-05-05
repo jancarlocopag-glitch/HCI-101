@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorites – My Library</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="favorites.css">
+</head>
+
+<body>
+
+    <!-- Hidden checkbox toggle -->
+    <input type="checkbox" id="menu-toggle">
+
+    <!-- HERO -->
+    <div class="genre-hero">
+        <img src="mangacover/manga.png" alt="Favorites Banner">
+
+        <a href="index.html" class="hero-back">&#8592;</a>
+
+        <label for="menu-toggle" class="hero-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <div class="hero-title">FAVORITES</div>
+    </div>
+
+    <!-- Backdrop -->
+    <label for="menu-toggle" class="menu-overlay"></label>
+
+    <!-- Slide-in panel -->
+    <div class="menu-panel">
+        <div class="menu-panel-header">
+            <h2>Menu</h2>
+            <label for="menu-toggle" class="menu-close">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+
+        <a href="index.html" class="menu-item">Home <span class="menu-chevron">›</span></a>
+        <a href="favorites.html" class="menu-item">Favorites <span class="menu-chevron">›</span></a>
+        <a href="#" class="menu-item">Profile <span class="menu-chevron">›</span></a>
+        <a href="#" class="menu-item">Settings <span class="menu-chevron">›</span></a>
+
+        <div class="menu-divider"></div>
+        <div class="menu-section-label">Genre</div>
+
+        <a href="romance.html" class="menu-item">Romance <span class="menu-chevron">›</span></a>
+        <a href="action.html" class="menu-item">Action <span class="menu-chevron">›</span></a>
+        <a href="sports.html" class="menu-item">Sports <span class="menu-chevron">›</span></a>
+        <a href="seinen.html" class="menu-item">Seinen <span class="menu-chevron">›</span></a>
+        <a href="adventure.html" class="menu-item">Adventure <span class="menu-chevron">›</span></a>
+    </div>
+
+    <!-- PAGE BODY -->
+    <div class="page-body">
+
+        <div class="manga-grid">
+
+            <a href="naruto.html" class="manga-card">
+                <img src="mangacover/naruto.png" alt="Naruto Shippuden">
+                <span class="manga-title">Naruto Shippuden</span>
+            </a>
+
+            <a href="onepiece.html" class="manga-card">
+                <img src="mangacover/one piece.png" alt="One Piece">
+                <span class="manga-title">One Piece</span>
+            </a>
+
+            <a href="jjk.html" class="manga-card">
+                <img src="mangacover/jjk.png" alt="Jujutsu Kaisen">
+                <span class="manga-title">Jujutsu Kaisen</span>
+            </a>
+
+            <a href="#" class="manga-card">
+                <img src="image/kaoru_hana.png" alt="The Fragrant Flower Blooms with Dignity">
+                <span class="manga-title">The Fragrant Flower Blooms with Dignity</span>
+            </a>
+
+            <a href="#" class="manga-card">
+                <img src="image/kaguya.png" alt="Kaguya Sama: Love is War">
+                <span class="manga-title">Kaguya Sama: Love is War</span>
+            </a>
+
+            <a href="#" class="manga-card">
+                <img src="mangacover/slamdunk.png" alt="SlamDunk">
+                <span class="manga-title">SlamDunk</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

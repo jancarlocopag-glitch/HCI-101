@@ -1,0 +1,283 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f0f2f5;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+}
+
+/* ── CHECKBOX TOGGLE ── */
+#menu-toggle {
+    display: none;
+}
+
+/* ── HERO ── */
+.genre-hero {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.genre-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+}
+
+.genre-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.30) 0%,
+            rgba(0, 0, 0, 0.15) 60%,
+            rgba(0, 0, 0, 0.55) 100%);
+}
+
+.hero-back {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    z-index: 3;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.hero-back:hover {
+    transform: scale(1.1);
+}
+
+.hero-menu {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    z-index: 3;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    transition: transform 0.3s ease;
+}
+
+.hero-menu:hover {
+    transform: scale(1.1);
+}
+
+.hero-menu span {
+    width: 28px;
+    height: 3px;
+    background: white;
+    border-radius: 30px;
+    display: block;
+}
+
+.hero-title {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    color: white;
+    font-size: 150px;
+    font-weight: 800;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+
+/* ── PAGE BODY ── */
+.page-body {
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 0;
+    overflow: visible;
+}
+
+/* ── MANGA GRID ── */
+.manga-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 10px 60px 10px 60px;
+    box-sizing: content-box;
+    justify-content: center;
+}
+
+.manga-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.manga-card {
+    background: white;
+    border-radius: 20px;
+    padding: 15px 15px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    width: fit-content;
+    flex: 0 0 auto;
+}
+
+.manga-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.20);
+}
+
+.manga-card img {
+    width: 150px;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.manga-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a1a;
+    text-align: center;
+    line-height: 1.4;
+    width: 150px;
+}
+
+/* ── SLIDE-IN MENU ── */
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+    cursor: pointer;
+}
+
+.menu-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 260px;
+    height: 100%;
+    background: #ececec;
+    z-index: 101;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+#menu-toggle:checked~.menu-overlay {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#menu-toggle:checked~.menu-panel {
+    transform: translateX(0);
+}
+
+.menu-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 24px 20px;
+}
+
+.menu-panel-header h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.menu-close {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 6px;
+}
+
+.menu-close span {
+    width: 26px;
+    height: 3px;
+    background: #1a1a1a;
+    border-radius: 30px;
+    display: block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+}
+
+#menu-toggle:checked~.menu-panel .menu-close span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+#menu-toggle:checked~.menu-panel .menu-close span:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-toggle:checked~.menu-panel .menu-close span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.menu-section-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 18px 24px 8px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    text-decoration: none;
+    transition: background 0.2s ease;
+    border-radius: 10px;
+    margin: 0 8px;
+}
+
+.menu-item:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.menu-chevron {
+    font-size: 20px;
+    color: #555;
+}
+
+.menu-divider {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+    margin: 8px 24px;
+}
+
+a.manga-card {
+    text-decoration: none;
+    color: inherit;
+}

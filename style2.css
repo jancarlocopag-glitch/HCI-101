@@ -1,0 +1,216 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ── HERO BANNER ── */
+.genre-hero {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    margin: 0;
+}
+
+.genre-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+}
+
+/* dark overlay on hero */
+.genre-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.30) 0%,
+            rgba(0, 0, 0, 0.15) 60%,
+            rgba(0, 0, 0, 0.45) 100%);
+}
+
+/* back arrow - Anchor tag styling */
+.hero-back {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    z-index: 3;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.hero-back:hover {
+    transform: scale(1.1);
+}
+
+/* hamburger */
+.hero-menu {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    z-index: 3;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+    transition: transform 0.3s ease;
+}
+
+.hero-menu:hover {
+    transform: scale(1.1);
+}
+
+.hero-menu span {
+    width: 30px;
+    height: 3px;
+    background: white;
+    border-radius: 30px;
+    display: block;
+}
+
+/* ROMANCE title over hero */
+.hero-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 3;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 150px;
+    font-weight: 800;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* ── PAGE BODY ── */
+.page-body {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+
+/* ── ABOUT BOX ── */
+.about-box {
+    background: white;
+    border-radius: 20px;
+    padding: 30px 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.about-box h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+}
+
+.about-box p {
+    font-size: 16px;
+    color: #3a3a3a;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* ── SECTION HEADER ── */
+.section-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+}
+
+/* ── MANGA SHELF ── */
+.manga-shelf {
+    position: relative;
+}
+
+.manga-scroll-wrapper {
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 10px 0;
+}
+
+.manga-scroll-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.manga-row {
+    display: flex;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+/* card box (white pill behind each manga cover) */
+.manga-card {
+    flex: 0 0 auto;
+    width: 180px;
+    background: white;
+    border-radius: 20px;
+    padding: 15px 15px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.manga-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.manga-card img {
+    width: 150px;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.manga-card .manga-title {
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #1a1a1a;
+    text-align: center;
+    line-height: 1.4;
+    width: 100%;
+}

@@ -1,0 +1,337 @@
+/* ============================================================
+   RESET & BASE
+   Normalizes browser defaults and sets the global font/layout
+============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+}
+
+
+/* ============================================================
+   HEADER
+   Full-width dark gradient bar containing the title,
+   hamburger button, and search box
+============================================================ */
+.app-header {
+    width: 100%;
+    background: linear-gradient(to right, #2c2c2c, #4a4a4a);
+    padding: 30px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin: 0;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 0 40px;
+}
+
+/* App title */
+.app-header h1 {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Hamburger Button ───────────────────────────────────── */
+.menu {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    cursor: pointer;
+    font-size: 30px;
+    transition: transform 0.3s ease;
+}
+
+.menu:hover {
+    transform: scale(1.1);
+    color: #ffcc00;
+}
+
+/* Hamburger lines */
+.menu span {
+    width: 50px;
+    height: 10px;
+    background: white;
+    border-radius: 30px;
+    transition: background 0.3s ease;
+}
+
+.menu:hover span {
+    background: #ffcc00;
+}
+
+/* ── Search Box ─────────────────────────────────────────── */
+.search-box {
+    width: 100%;
+    max-width: 2000px;
+    margin: 0 auto;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 18px 30px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    background: #dcdcdc;
+    font-size: 18px;
+}
+
+
+/* Cards container */
+.genres {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 20px;
+}
+
+/* Individual card */
+.genre-card {
+    position: relative;
+    height: 350px;
+    width: 100%;
+    border-radius: 25px;
+    overflow: hidden;
+    cursor: pointer;
+    padding: 0;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover lift effect */
+.genre-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Banner image fills the card */
+.genre-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark gradient overlay — left-heavy so the label stays readable */
+.genre-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.1));
+}
+
+/* Genre label (e.g. "Romance") */
+.genre-card span {
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 80px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 2px;
+    z-index: 2;
+}
+
+/* Click/tap press effect */
+.genre-card:active {
+    transform: scale(0.99);
+}
+
+/* Right-side arrow chevron */
+.chevron {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+
+/* ============================================================
+   HAMBURGER MENU SYSTEM
+   Pure-CSS slide-in panel controlled by a hidden checkbox.
+   Sibling combinators (~) connect the checkbox to the overlay
+   and panel so no JavaScript is needed.
+============================================================ */
+
+/* Hidden checkbox — the actual toggle state holder */
+#menu-toggle {
+    display: none;
+}
+
+/* ── Dimmed Overlay ─────────────────────────────────────── */
+/* Covers the page behind the panel; click to close */
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+    cursor: pointer;
+}
+
+/* ── Slide-in Panel ─────────────────────────────────────── */
+.menu-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 260px;
+    height: 100%;
+    background: #ececec;
+    z-index: 101;
+    transform: translateX(100%);
+    /* hidden off-screen to the right */
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+/* When checkbox is checked: show overlay and slide panel in */
+#menu-toggle:checked~.menu-overlay {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#menu-toggle:checked~.menu-panel {
+    transform: translateX(0);
+}
+
+/* ── Panel Header ───────────────────────────────────────── */
+.menu-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 24px 20px;
+}
+
+.menu-panel-header h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+/* ── Close Button (X icon) ──────────────────────────────── */
+.menu-close {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 6px;
+}
+
+/* Three lines that animate into an X when menu is open */
+.menu-close span {
+    width: 26px;
+    height: 3px;
+    background: #1a1a1a;
+    border-radius: 30px;
+    display: block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+}
+
+/* Top line rotates to form the first diagonal of X */
+#menu-toggle:checked~.menu-panel .menu-close span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+/* Middle line fades out */
+#menu-toggle:checked~.menu-panel .menu-close span:nth-child(2) {
+    opacity: 0;
+}
+
+/* Bottom line rotates to form the second diagonal of X */
+#menu-toggle:checked~.menu-panel .menu-close span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ── Menu Items & Sections ──────────────────────────────── */
+
+/* Section label (e.g. "Genre") */
+.menu-section-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 18px 24px 8px;
+}
+
+/* Individual nav link row */
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    text-decoration: none;
+    transition: background 0.2s ease;
+    border-radius: 10px;
+    margin: 0 8px;
+}
+
+.menu-item:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+/* Right-side › arrow on each menu item */
+.menu-chevron {
+    font-size: 20px;
+    color: #555;
+}
+
+/* Thin horizontal rule between nav groups */
+.menu-divider {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+    margin: 8px 24px;
+}
