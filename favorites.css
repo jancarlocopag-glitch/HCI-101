@@ -44,10 +44,10 @@ body {
 .hero-back {
     position: absolute;
     top: 30px;
-    left: 40px;
+    left: 100px;
     z-index: 3;
     color: white;
-    font-size: 28px;
+    font-size: 60px;
     font-weight: bold;
     text-decoration: none;
     transition: transform 0.3s ease;
