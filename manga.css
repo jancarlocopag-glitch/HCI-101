@@ -5,7 +5,7 @@
 }
 
 body {
-    background: #f0f2f5;
+    background: transparent;
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
 }
@@ -32,34 +32,36 @@ body {
     inset: 0;
     background: linear-gradient(to bottom,
             rgba(0, 0, 0, 0.30) 0%,
-            rgba(0, 0, 0, 0.15) 40%,
-            rgba(0, 0, 0, 0.75) 100%);
+            rgba(0, 0, 0, 0.10) 35%,
+            rgba(0, 0, 0, 0.85) 100%);
 }
 
 .hero-back {
     position: absolute;
-    top: 32px;
+    top: 30px;
     left: 44px;
     z-index: 3;
+    cursor: pointer;
     color: white;
-    font-size: 28px;
+    font-size: 50px;
     font-weight: bold;
+    line-height: 1;
+    background: none;
+    border: none;
     text-decoration: none;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s;
 }
 
 .hero-back:hover {
     transform: scale(1.1);
 }
 
+/* ── HAMBURGER — matches index style ── */
 .hero-menu {
     position: absolute;
-    top: 28px;
-    right: 44px;
+    top: 30px;
+    right: 40px;
     z-index: 3;
-    width: 60px;
-    height: 60px;
-    padding: 10px;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -67,7 +69,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 7px;
+    gap: 5px;
+    padding: 10px;
     transition: transform 0.3s ease;
 }
 
@@ -76,22 +79,19 @@ body {
 }
 
 .hero-menu span {
-    width: 50px;
-    height: 10px;
+    width: 30px;
+    height: 3px;
     background: white;
     border-radius: 30px;
     display: block;
-    transition: background 0.3s ease;
 }
 
-.hero-menu:hover span {
-    background: #ffcc00;
-}
-
+/* Title block — vertically centered left */
 .hero-info {
     position: absolute;
-    bottom: 36px;
+    top: 50%;
     left: 44px;
+    transform: translateY(-50%);
     z-index: 3;
     color: white;
 }
@@ -119,6 +119,45 @@ body {
     margin-top: 4px;
 }
 
+/* Stats bar — pinned to bottom of hero */
+.stats-row {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    display: flex;
+}
+
+.stat-card {
+    flex: 1;
+    padding: 30px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.stat-card:last-child {
+    border-right: none;
+}
+
+.stat-card .stat-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.stat-card .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.55);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 /* ── PAGE BODY ── */
 .page-body {
     width: 100%;
@@ -131,45 +170,12 @@ body {
     align-items: center;
 }
 
-/* ── STATS ROW ── */
-.stats-row {
-    width: 100%;
-    display: flex;
-    gap: 20px;
-}
-
-.stat-card {
-    flex: 1;
-    background: white;
-    border-radius: 20px;
-    padding: 24px 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-}
-
-.stat-card .stat-value {
-    font-size: 36px;
-    font-weight: 800;
-    color: #1a1a1a;
-    line-height: 1;
-}
-
-.stat-card .stat-label {
-    font-size: 14px;
-    font-weight: 600;
-    color: #888;
-}
-
 /* ── SYNOPSIS BOX ── */
 .synopsis-box {
     width: 100%;
-    background: white;
+    background: transparent;
     border-radius: 20px;
-    padding: 30px 40px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 0;
 }
 
 .synopsis-box h2 {
@@ -274,21 +280,20 @@ body {
 .char-card {
     flex: 0 0 auto;
     width: 140px;
-    background: white;
+    background: transparent;
     border-radius: 20px;
     padding: 14px 14px 18px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: none;
+    transition: transform 0.3s ease;
     cursor: pointer;
 }
 
 .char-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
 }
 
 .char-card img {

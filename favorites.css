@@ -44,13 +44,17 @@ body {
 .hero-back {
     position: absolute;
     top: 30px;
-    left: 100px;
+    left: 44px;
     z-index: 3;
+    cursor: pointer;
     color: white;
-    font-size: 60px;
+    font-size: 50px;
     font-weight: bold;
+    line-height: 1;
+    background: none;
+    border: none;
     text-decoration: none;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s;
 }
 
 .hero-back:hover {

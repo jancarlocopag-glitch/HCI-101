@@ -2,11 +2,13 @@
    RESET & BASE
    Normalizes browser defaults and sets the global font/layout
 ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -21,9 +23,166 @@ body {
 
 
 /* ============================================================
+   HAMBURGER MENU SYSTEM — CHECKBOX TOGGLE
+   Must appear before overlay/panel in CSS since HTML places
+   #menu-toggle before .menu-overlay and .menu-panel
+============================================================ */
+
+/* Hidden checkbox — the actual toggle state holder */
+#menu-toggle {
+    display: none;
+}
+
+
+/* ============================================================
+   MENU OVERLAY
+   Dimmed backdrop behind the slide-in panel; click to close
+============================================================ */
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+    cursor: pointer;
+}
+
+/* Show overlay when checkbox is checked */
+#menu-toggle:checked~.menu-overlay {
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+/* ============================================================
+   MENU PANEL
+   Slide-in drawer from the right side of the screen
+============================================================ */
+.menu-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 260px;
+    height: 100%;
+    background: #ececec;
+    z-index: 101;
+    transform: translateX(100%);
+    /* hidden off-screen to the right */
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+/* Slide panel in when checkbox is checked */
+#menu-toggle:checked~.menu-panel {
+    transform: translateX(0);
+}
+
+/* ── Panel Header ───────────────────────────────────────── */
+.menu-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 24px 20px;
+}
+
+.menu-panel-header h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+/* ── Close Button (X icon) ──────────────────────────────── */
+.menu-close {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 6px;
+}
+
+/* Three lines that animate into an X when menu is open */
+.menu-close span {
+    width: 26px;
+    height: 3px;
+    background: #1a1a1a;
+    border-radius: 30px;
+    display: block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+}
+
+/* Top line rotates to form the first diagonal of X */
+#menu-toggle:checked~.menu-panel .menu-close span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+/* Middle line fades out */
+#menu-toggle:checked~.menu-panel .menu-close span:nth-child(2) {
+    opacity: 0;
+}
+
+/* Bottom line rotates to form the second diagonal of X */
+#menu-toggle:checked~.menu-panel .menu-close span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ── Menu Items ─────────────────────────────────────────── */
+
+/* Individual nav link row */
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    text-decoration: none;
+    transition: background 0.2s ease;
+    border-radius: 10px;
+    margin: 0 8px;
+}
+
+.menu-item:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+/* Right-side › arrow on each menu item */
+.menu-chevron {
+    font-size: 20px;
+    color: #555;
+}
+
+/* ── Menu Divider & Section Label ───────────────────────── */
+
+/* Thin horizontal rule between nav groups */
+.menu-divider {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+    margin: 8px 24px;
+}
+
+/* Section label (e.g. "Genre") */
+.menu-section-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 18px 24px 8px;
+}
+
+
+/* ============================================================
    HEADER
-   Full-width dark gradient bar containing the title,
-   hamburger button, and search box
+   Full-width dark gradient bar with title, hamburger, search
 ============================================================ */
 .app-header {
     width: 100%;
@@ -109,7 +268,10 @@ body {
 }
 
 
-/* Cards container */
+/* ============================================================
+   GENRE CARDS CONTAINER
+   Wraps all genre cards in a centered column layout
+============================================================ */
 .genres {
     width: 100%;
     max-width: 1200px;
@@ -119,7 +281,11 @@ body {
     padding: 40px 20px;
 }
 
-/* Individual card */
+
+/* ============================================================
+   GENRE CARD
+   Individual clickable banner card with image and label
+============================================================ */
 .genre-card {
     position: relative;
     height: 350px;
@@ -141,6 +307,11 @@ body {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
+/* Click/tap press effect */
+.genre-card:active {
+    transform: scale(0.99);
+}
+
 /* Banner image fills the card */
 .genre-card img {
     width: 100%;
@@ -154,9 +325,11 @@ body {
     position: absolute;
     inset: 0;
     background: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.1));
+    z-index: 1;
 }
 
-/* Genre label (e.g. "Romance") */
+/* ── Genre Label ────────────────────────────────────────── */
+/* e.g. "Romance", "Action" — sits on the left side */
 .genre-card span {
     position: absolute;
     left: 50px;
@@ -170,12 +343,8 @@ body {
     z-index: 2;
 }
 
-/* Click/tap press effect */
-.genre-card:active {
-    transform: scale(0.99);
-}
-
-/* Right-side arrow chevron */
+/* ── Chevron Arrow ──────────────────────────────────────── */
+/* Right-side › arrow indicator */
 .chevron {
     position: absolute;
     right: 50px;
@@ -185,153 +354,64 @@ body {
     font-size: 40px;
     font-weight: bold;
     z-index: 2;
+    transition: opacity 0.4s ease;
+}
+
+/* Hide chevron when info panel slides in */
+.genre-card:hover .chevron {
+    opacity: 0;
 }
 
 
 /* ============================================================
-   HAMBURGER MENU SYSTEM
-   Pure-CSS slide-in panel controlled by a hidden checkbox.
-   Sibling combinators (~) connect the checkbox to the overlay
-   and panel so no JavaScript is needed.
+   GENRE CARD — HOVER INFO PANEL
+   Dark panel slides in from the right, covers half the card,
+   reveals a title and justified genre description
 ============================================================ */
-
-/* Hidden checkbox — the actual toggle state holder */
-#menu-toggle {
-    display: none;
-}
-
-/* ── Dimmed Overlay ─────────────────────────────────────── */
-/* Covers the page behind the panel; click to close */
-.menu-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.45);
-    z-index: 100;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.35s ease;
-    cursor: pointer;
-}
-
-/* ── Slide-in Panel ─────────────────────────────────────── */
-.menu-panel {
-    position: fixed;
+.genre-info {
+    position: absolute;
     top: 0;
     right: 0;
-    width: 260px;
+    width: 50%;
     height: 100%;
-    background: #ececec;
-    z-index: 101;
-    transform: translateX(100%);
-    /* hidden off-screen to the right */
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(0, 0, 0, 0.82);
+    z-index: 3;
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
+    justify-content: center;
+    padding: 40px 45px;
+    gap: 16px;
+
+    /* Gradient: transparent on left edge → dark on right, blends into the card */
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.438) 30%, rgba(0, 0, 0, 0.798));
+
+    /* Start hidden — clipped off to the right */
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* When checkbox is checked: show overlay and slide panel in */
-#menu-toggle:checked~.menu-overlay {
-    opacity: 1;
-    pointer-events: all;
-}
-
-#menu-toggle:checked~.menu-panel {
+/* Slide panel in on card hover */
+.genre-card:hover .genre-info {
     transform: translateX(0);
 }
 
-/* ── Panel Header ───────────────────────────────────────── */
-.menu-panel-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 24px 24px 20px;
-}
-
-.menu-panel-header h2 {
+/* Genre title inside the hover panel */
+.genre-info h3 {
     font-family: 'Poppins', sans-serif;
-    font-size: 22px;
+    font-size: 28px;
     font-weight: 700;
-    color: #1a1a1a;
-}
-
-/* ── Close Button (X icon) ──────────────────────────────── */
-.menu-close {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 6px;
-}
-
-/* Three lines that animate into an X when menu is open */
-.menu-close span {
-    width: 26px;
-    height: 3px;
-    background: #1a1a1a;
-    border-radius: 30px;
-    display: block;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    transform-origin: center;
-}
-
-/* Top line rotates to form the first diagonal of X */
-#menu-toggle:checked~.menu-panel .menu-close span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-/* Middle line fades out */
-#menu-toggle:checked~.menu-panel .menu-close span:nth-child(2) {
-    opacity: 0;
-}
-
-/* Bottom line rotates to form the second diagonal of X */
-#menu-toggle:checked~.menu-panel .menu-close span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-/* ── Menu Items & Sections ──────────────────────────────── */
-
-/* Section label (e.g. "Genre") */
-.menu-section-label {
-    font-family: 'Poppins', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: #888;
-    text-transform: uppercase;
+    color: #ffffff;
     letter-spacing: 1px;
-    padding: 18px 24px 8px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+    padding-bottom: 12px;
 }
 
-/* Individual nav link row */
-.menu-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 24px;
+/* Description text — justified alignment */
+.genre-info p {
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    color: #1a1a1a;
-    text-decoration: none;
-    transition: background 0.2s ease;
-    border-radius: 10px;
-    margin: 0 8px;
-}
-
-.menu-item:hover {
-    background: rgba(0, 0, 0, 0.06);
-}
-
-/* Right-side › arrow on each menu item */
-.menu-chevron {
-    font-size: 20px;
-    color: #555;
-}
-
-/* Thin horizontal rule between nav groups */
-.menu-divider {
-    height: 1px;
-    background: rgba(0, 0, 0, 0.1);
-    margin: 8px 24px;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.75;
+    text-align: justify;
 }
