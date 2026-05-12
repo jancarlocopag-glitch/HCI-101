@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections – My Library</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="manga.css">
+</head>
+
+<body>
+
+    <!-- HERO -->
+    <div class="hero">
+        <img class="hero-bg" src="mangacover/narutoBanner.png" alt="Naruto Shippuden Banner">
+
+        <a href="favorites.html" class="hero-back">&#8592;</a>
+
+        <button class="hero-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="hero-info">
+            <h1>Collections<br></h1>
+            <div class="Bio">A look of my reading journey</div>
+        </div>
+
+        <!-- Stats moved inside hero -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <span class="stat-value">28</span>
+                <span class="stat-label">Total Manga</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">11</span>
+                <span class="stat-label">Manga Completed</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">12</span>
+                <span class="stat-label">Ongoing Manga</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">17</span>
+                <span class="stat-label">Currently Reading</span>
+            </div>
+        </div>
+    </div>
+    <!-- PAGE BODY -->
+    <div class="page-body">
+
+        <!-- Top 3 Manga -->
+        <div class="panels-section">
+            <div class="section-label">Top Three Manga</div>
+            <div class="panels-grid">
+                <div class="panel-card">
+                    <a href="naruto.html">
+                        <img src="mangacover/iconicPanels/top3/naruto.png" alt="Panel 1"
+                            onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'panel-placeholder\'>☰</div>'">
+                    </a>
+                </div>
+                <div class="panel-card">
+                    <a href="onepiece.html">
+                        <img src="mangacover/iconicPanels/top3/onepiece.png" alt="Panel 2"
+                            onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'panel-placeholder\'>☰</div>'">
+                    </a>
+                </div>
+                <div class="panel-card">
+                    <a href="slamdunk.html">
+                        <img src="mangacover/iconicPanels/top3/slamdunk.png" alt="Panel 3"
+                            onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'panel-placeholder\'>☰</div>'">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Completed -->
+        <div class="characters-section">
+            <div class="section-label">Completed Manga</div>
+            <div class="char-scroll-wrapper">
+                <div class="char-row">
+
+                    <a href="naruto.html" class="char-card2">
+                        <img src="mangacover/naruto.png" alt="Naruto Shippuden"
+                            onerror="this.style.display='none'; this.parentElement.insertBefore(Object.assign(document.createElement('div'), {className:'char-avatar-placeholder', innerHTML:'?'}), this.nextSibling)">
+                        <span class="char-name">Naruto Shippuden</span>
+                    </a>
+
+                    <a href="jjk.html" class="char-card2">
+                        <img src="mangacover/jjk.png" alt="Jujutsu Kaisen"
+                            onerror="this.style.display='none'; this.parentElement.insertBefore(Object.assign(document.createElement('div'), {className:'char-avatar-placeholder', innerHTML:'?'}), this.nextSibling)">
+                        <span class="char-name">Jujutsu Kaisen</span>
+                    </a>
+
+                    <a href="action.html" class="char-card2">
+                        <img src="mangacover/iconicPanels/top3/finished/aot.png" alt="SlamDunk"
+                            onerror="this.style.display='none'; this.parentElement.insertBefore(Object.assign(document.createElement('div'), {className:'char-avatar-placeholder', innerHTML:'?'}), this.nextSibling)">
+                        <span class="char-name">Attack on Titan</span>
+                    </a>
+
+                    <a href="action.html" class="char-card2">
+                        <img src="mangacover/iconicPanels/top3/finished/blackClover.png" alt="SlamDunk"
+                            onerror="this.style.display='none'; this.parentElement.insertBefore(Object.assign(document.createElement('div'), {className:'char-avatar-placeholder', innerHTML:'?'}), this.nextSibling)">
+                        <span class="char-name">Black Clover</span>
+                    </a>
+
+                    <a href="kaguya.html" class="char-card2">
+                        <img src="image/kaguya.png" alt="Kaguya Sama: Love is War"
+                            onerror="this.style.display='none'; this.parentElement.insertBefore(Object.assign(document.createElement('div'), {className:'char-avatar-placeholder', innerHTML:'?'}), this.nextSibling)">
+                        <span class="char-name">Kaguya Sama: Love is War</span>
+                    </a>
+
+
+                    <a href="romance.html" class="char-card2">
+                        <img src="mangacover/iconicPanels/top3/finished/horiMiya.png" alt="SlamDunk"
+                            onerror="this.style.display='none'; this.parentElement.insertBefore(Object.assign(document.createElement('div'), {className:'char-avatar-placeholder', innerHTML:'?'}), this.nextSibling)">
+                        <span class="char-name">Horimiya</span>
+                    </a>
+
+
+                    <a href="slamdunk.html" class="char-card2">
+                        <img src="mangacover/slamdunk.png" alt="SlamDunk"
+                            onerror="this.style.display='none'; this.parentElement.insertBefore(Object.assign(document.createElement('div'), {className:'char-avatar-placeholder', innerHTML:'?'}), this.nextSibling)">
+                        <span class="char-name">SlamDunk</span>
+                    </a>
+                    <a href="sports.html" class="char-card2">
+                        <img src="mangacover/iconicPanels/top3/finished/haikyuu!!.png" alt="SlamDunk"
+                            onerror="this.style.display='none'; this.parentElement.insertBefore(Object.assign(document.createElement('div'), {className:'char-avatar-placeholder', innerHTML:'?'}), this.nextSibling)">
+                        <span class="char-name">Haikyuu!!</span>
+                    </a>
+
+                    <a href="seinen.html" class="char-card2">
+                        <img src="mangacover/iconicPanels/top3/finished/vagabond.png" alt="SlamDunk"
+                            onerror="this.style.display='none'; this.parentElement.insertBefore(Object.assign(document.createElement('div'), {className:'char-avatar-placeholder', innerHTML:'?'}), this.nextSibling)">
+                        <span class="char-name">Vagabond</span>
+                    </a>
+
+                    <a href="seinen.html" class="char-card2">
+                        <img src="mangacover/iconicPanels/top3/finished/vinlandSaga.png" alt="SlamDunk"
+                            onerror="this.style.display='none'; this.parentElement.insertBefore(Object.assign(document.createElement('div'), {className:'char-avatar-placeholder', innerHTML:'?'}), this.nextSibling)">
+                        <span class="char-name">Vinland Saga</span>
+                    </a>
+
+                    <a href="adventure.htm" class="char-card2">
+                        <img src="mangacover/iconicPanels/top3/finished/dr.Stone.png" alt="SlamDunk"
+                            onerror="this.style.display='none'; this.parentElement.insertBefore(Object.assign(document.createElement('div'), {className:'char-avatar-placeholder', innerHTML:'?'}), this.nextSibling)">
+                        <span class="char-name">Dr. Stone</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>
