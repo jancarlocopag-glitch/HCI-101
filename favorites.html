@@ -6,33 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favorites – My Library</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="favorites.css">
 </head>
 
 <body>
-
-    <!-- Hidden checkbox toggle -->
+    <!-- 1. Checkbox -->
     <input type="checkbox" id="menu-toggle">
 
-    <!-- HERO -->
-    <div class="genre-hero">
-        <img src="mangacover/manga.png" alt="Favorites Banner">
-
-        <a href="index.html" class="hero-back">&#8592;</a>
-
-        <label for="menu-toggle" class="hero-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
-
-        <div class="hero-title">FAVORITES</div>
-    </div>
-
-    <!-- Backdrop -->
+    <!-- 2. Overlay -->
     <label for="menu-toggle" class="menu-overlay"></label>
 
-    <!-- Slide-in panel -->
+    <!-- 3. Menu Panel -->
     <div class="menu-panel">
         <div class="menu-panel-header">
             <h2>Menu</h2>
@@ -42,11 +27,10 @@
                 <span></span>
             </label>
         </div>
-
         <a href="index.html" class="menu-item">Home <span class="menu-chevron">›</span></a>
         <a href="favorites.html" class="menu-item">Favorites <span class="menu-chevron">›</span></a>
-        <a href="#" class="menu-item">Profile <span class="menu-chevron">›</span></a>
-        <a href="#" class="menu-item">Settings <span class="menu-chevron">›</span></a>
+        <a href="mangaStats.html" class="menu-item">Manga Stats <span class="menu-chevron">›</span></a>
+        <a href="#" class="menu-item">About <span class="menu-chevron">›</span></a>
 
         <div class="menu-divider"></div>
         <div class="menu-section-label">Genre</div>
@@ -58,44 +42,261 @@
         <a href="adventure.html" class="menu-item">Adventure <span class="menu-chevron">›</span></a>
     </div>
 
+    <!-- HERO -->
+    <div class="genre-hero">
+        <img src="mangacover/manga.png" alt="Favorites Banner">
+        <a href="index.html" class="hero-back">&#8592;</a>
+        <label for="menu-toggle" class="hero-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <div class="hero-title">FAVORITES</div>
+    </div>
+
     <!-- PAGE BODY -->
     <div class="page-body">
 
-        <div class="manga-grid">
+        <!-- Romance ---------------------------------------->
+        <div class="genre-shelf">
+            <div class="genre-shelf-header">
+                <span class="genre-shelf-label">Romance</span>
+                <a href="romance.html" class="genre-shelf-link">See all ›</a>
+            </div>
+            <div class="shelf-scroll-wrapper">
+                <button class="shelf-chevron left" onclick="scrollShelf('romance-row', -1)">&#8249;</button>
+                <div class="manga-row" id="romance-row">
+                    <a href="kaoru.html" class="manga-card">
+                        <img src="image/kaoru_hana.png" alt="The Fragrant Flower Blooms with Dignity">
+                        <span class="manga-title">The Fragrant Flower Blooms with Dignity</span>
+                    </a>
+                    <a href="kaguya.html" class="manga-card">
+                        <img src="image/kaguya.png" alt="Kaguya Sama: Love is War">
+                        <span class="manga-title">Kaguya Sama: Love is War</span>
+                    </a>
+                    <div class="manga-card">
+                        <img src="image/horimiya.png" alt="Hori &amp; Miyamura">
+                        <span class="manga-title">Hori &amp; Miyamura</span>
+                    </div>
+                    <div class="manga-card">
+                        <img src="image/bluebox.png" alt="Blue Box">
+                        <span class="manga-title">Blue Box</span>
+                    </div>
+                    <a href="kaoru.html" class="manga-card">
+                        <img src="image/kaoru_hana.png" alt="The Fragrant Flower Blooms with Dignity">
+                        <span class="manga-title">The Fragrant Flower Blooms with Dignity</span>
+                    </a>
+                    <a href="kaguya.html" class="manga-card">
+                        <img src="image/kaguya.png" alt="Kaguya Sama: Love is War">
+                        <span class="manga-title">Kaguya Sama: Love is War</span>
+                    </a>
+                    <div class="manga-card">
+                        <img src="image/horimiya.png" alt="Hori &amp; Miyamura">
+                        <span class="manga-title">Hori &amp; Miyamura</span>
+                    </div>
+                    <div class="manga-card">
+                        <img src="image/bluebox.png" alt="Blue Box">
+                        <span class="manga-title">Blue Box</span>
+                    </div>
+                </div>
+                <button class="shelf-chevron right" onclick="scrollShelf('romance-row', 1)">&#8250;</button>
+            </div>
+        </div>
 
-            <a href="naruto.html" class="manga-card">
-                <img src="mangacover/naruto.png" alt="Naruto Shippuden">
-                <span class="manga-title">Naruto Shippuden</span>
-            </a>
+        <!-- Action ---------------------------------------->
+        <div class="genre-shelf">
+            <div class="genre-shelf-header">
+                <span class="genre-shelf-label">Action</span>
+                <a href="action.html" class="genre-shelf-link">See all ›</a>
+            </div>
+            <div class="shelf-scroll-wrapper">
+                <button class="shelf-chevron left" onclick="scrollShelf('action-row', -1)">&#8249;</button>
+                <div class="manga-row" id="action-row">
+                    <a href="naruto.html" class="manga-card">
+                        <img src="mangacover/naruto.png" alt="Naruto Shippuden">
+                        <span class="manga-title">Naruto Shippuden</span>
+                    </a>
+                    <a href="jjk.html" class="manga-card">
+                        <img src="mangacover/jjk.png" alt="Jujutsu Kaisen">
+                        <span class="manga-title">Jujutsu Kaisen</span>
+                    </a>
+                    <a href="onepiece.html" class="manga-card">
+                        <img src="mangacover/one piece.png" alt="One Piece">
+                        <span class="manga-title">One Piece</span>
+                    </a>
+                    <div class="manga-card">
+                        <img src="mangacover/aot.png" alt="Attack on Titan">
+                        <span class="manga-title">Attack on Titan</span>
+                    </div>
+                    <a href="naruto.html" class="manga-card">
+                        <img src="mangacover/naruto.png" alt="Naruto Shippuden">
+                        <span class="manga-title">Naruto Shippuden</span>
+                    </a>
+                    <a href="jjk.html" class="manga-card">
+                        <img src="mangacover/jjk.png" alt="Jujutsu Kaisen">
+                        <span class="manga-title">Jujutsu Kaisen</span>
+                    </a>
+                    <a href="onepiece.html" class="manga-card">
+                        <img src="mangacover/one piece.png" alt="One Piece">
+                        <span class="manga-title">One Piece</span>
+                    </a>
+                    <div class="manga-card">
+                        <img src="mangacover/aot.png" alt="Attack on Titan">
+                        <span class="manga-title">Attack on Titan</span>
+                    </div>
+                </div>
+                <button class="shelf-chevron right" onclick="scrollShelf('action-row', 1)">&#8250;</button>
+            </div>
+        </div>
 
-            <a href="onepiece.html" class="manga-card">
-                <img src="mangacover/one piece.png" alt="One Piece">
-                <span class="manga-title">One Piece</span>
-            </a>
+        <!-- Sports ---------------------------------------->
+        <div class="genre-shelf">
+            <div class="genre-shelf-header">
+                <span class="genre-shelf-label">Sports</span>
+                <a href="sports.html" class="genre-shelf-link">See all ›</a>
+            </div>
+            <div class="shelf-scroll-wrapper">
+                <button class="shelf-chevron left" onclick="scrollShelf('sports-row', -1)">&#8249;</button>
+                <div class="manga-row" id="sports-row">
+                    <a href="slamdunk.html" class="manga-card">
+                        <img src="mangacover/slamdunk.png" alt="SlamDunk">
+                        <span class="manga-title">SlamDunk</span>
+                    </a>
+                    <div class="manga-card">
+                        <img src="mangacover/haikyuu.png" alt="Haikyuu!">
+                        <span class="manga-title">Haikyuu!</span>
+                    </div>
+                    <div class="manga-card">
+                        <img src="mangacover/bluelock.png" alt="Blue Lock">
+                        <span class="manga-title">Blue Lock</span>
+                    </div>
+                    <div class="manga-card">
+                        <img src="mangacover/real.png" alt="Real">
+                        <span class="manga-title">Real</span>
+                    </div>
+                    <a href="slamdunk.html" class="manga-card">
+                        <img src="mangacover/slamdunk.png" alt="SlamDunk">
+                        <span class="manga-title">SlamDunk</span>
+                    </a>
+                    <div class="manga-card">
+                        <img src="mangacover/haikyuu.png" alt="Haikyuu!">
+                        <span class="manga-title">Haikyuu!</span>
+                    </div>
+                    <div class="manga-card">
+                        <img src="mangacover/bluelock.png" alt="Blue Lock">
+                        <span class="manga-title">Blue Lock</span>
+                    </div>
+                    <div class="manga-card">
+                        <img src="mangacover/real.png" alt="Real">
+                        <span class="manga-title">Real</span>
+                    </div>
+                </div>
+                <button class="shelf-chevron right" onclick="scrollShelf('sports-row', 1)">&#8250;</button>
+            </div>
+        </div>
 
-            <a href="jjk.html" class="manga-card">
-                <img src="mangacover/jjk.png" alt="Jujutsu Kaisen">
-                <span class="manga-title">Jujutsu Kaisen</span>
-            </a>
+        <!-- Seinen ---------------------------------------->
+        <div class="genre-shelf">
+            <div class="genre-shelf-header">
+                <span class="genre-shelf-label">Seinen</span>
+                <a href="seinen.html" class="genre-shelf-link">See all ›</a>
+            </div>
+            <div class="shelf-scroll-wrapper">
+                <button class="shelf-chevron left" onclick="scrollShelf('seinen-row', -1)">&#8249;</button>
+                <div class="manga-row" id="seinen-row">
+                    <div class="manga-card">
+                        <img src="mangacover/vagabond.png" alt="Vagabond">
+                        <span class="manga-title">Vagabond</span>
+                    </div>
+                    <div class="manga-card">
+                        <img src="mangacover/vinland.png" alt="Vinland Saga">
+                        <span class="manga-title">Vinland Saga</span>
+                    </div>
+                    <div class="manga-card">
+                        <img src="mangacover/op.png" alt="One Punch Man">
+                        <span class="manga-title">One Punch Man</span>
+                    </div>
+                    <div class="manga-card">
+                        <img src="mangacover/mons.png" alt="Monster">
+                        <span class="manga-title">Monster</span>
+                    </div>
+                    <div class="manga-card">
+                        <img src="mangacover/vagabond.png" alt="Vagabond">
+                        <span class="manga-title">Vagabond</span>
+                    </div>
+                    <div class="manga-card">
+                        <img src="mangacover/vinland.png" alt="Vinland Saga">
+                        <span class="manga-title">Vinland Saga</span>
+                    </div>
+                    <div class="manga-card">
+                        <img src="mangacover/op.png" alt="One Punch Man">
+                        <span class="manga-title">One Punch Man</span>
+                    </div>
+                    <div class="manga-card">
+                        <img src="mangacover/mons.png" alt="Monster">
+                        <span class="manga-title">Monster</span>
+                    </div>
+                </div>
+                <button class="shelf-chevron right" onclick="scrollShelf('seinen-row', 1)">&#8250;</button>
+            </div>
+        </div>
 
-            <a href="kaoru.html" class="manga-card">
-                <img src="image/kaoru_hana.png" alt="The Fragrant Flower Blooms with Dignity">
-                <span class="manga-title">The Fragrant Flower Blooms with Dignity</span>
-            </a>
-
-            <a href="kaguya.html" class="manga-card">
-                <img src="image/kaguya.png" alt="Kaguya Sama: Love is War">
-                <span class="manga-title">Kaguya Sama: Love is War</span>
-            </a>
-
-            <a href="slamdunk.html" class="manga-card">
-                <img src="mangacover/slamdunk.png" alt="SlamDunk">
-                <span class="manga-title">SlamDunk</span>
-            </a>
-
+        <!-- Adventure ---------------------------------------->
+        <div class="genre-shelf">
+            <div class="genre-shelf-header">
+                <span class="genre-shelf-label">Adventure</span>
+                <a href="adventure.html" class="genre-shelf-link">See all ›</a>
+            </div>
+            <div class="shelf-scroll-wrapper">
+                <button class="shelf-chevron left" onclick="scrollShelf('adventure-row', -1)">&#8249;</button>
+                <div class="manga-row" id="adventure-row">
+                    <a href="onepiece.html" class="manga-card">
+                        <img src="mangacover/one piece.png" alt="One Piece">
+                        <span class="manga-title">One Piece</span>
+                    </a>
+                    <div class="manga-card">
+                        <img src="mangacover/dr.stone.png" alt="Dr. Stone">
+                        <span class="manga-title">Dr. Stone</span>
+                    </div>
+                    <div class="manga-card">
+                        <img src="mangacover/shangrila.png" alt="Shangri-La Frontier">
+                        <span class="manga-title">Shangri-La Frontier</span>
+                    </div>
+                    <div class="manga-card">
+                        <img src="mangacover/frieren.png" alt="Frieren">
+                        <span class="manga-title">Frieren</span>
+                    </div>
+                    <a href="onepiece.html" class="manga-card">
+                        <img src="mangacover/one piece.png" alt="One Piece">
+                        <span class="manga-title">One Piece</span>
+                    </a>
+                    <div class="manga-card">
+                        <img src="mangacover/dr.stone.png" alt="Dr. Stone">
+                        <span class="manga-title">Dr. Stone</span>
+                    </div>
+                    <div class="manga-card">
+                        <img src="mangacover/shangrila.png" alt="Shangri-La Frontier">
+                        <span class="manga-title">Shangri-La Frontier</span>
+                    </div>
+                    <div class="manga-card">
+                        <img src="mangacover/frieren.png" alt="Frieren">
+                        <span class="manga-title">Frieren</span>
+                    </div>
+                </div>
+                <button class="shelf-chevron right" onclick="scrollShelf('adventure-row', 1)">&#8250;</button>
+            </div>
         </div>
 
     </div>
+
+    <script>
+        function scrollShelf(rowId, direction) {
+            const row = document.getElementById(rowId);
+            const card = row.querySelector('.manga-card');
+            const cardWidth = card ? card.offsetWidth + 20 : 170;
+            row.scrollBy({ left: direction * cardWidth * 2, behavior: 'smooth' });
+        }
+    </script>
 
 </body>
 

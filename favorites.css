@@ -61,16 +61,23 @@ body {
     transform: scale(1.1);
 }
 
+/* ── HAMBURGER — matches index style ── */
 .hero-menu {
     position: absolute;
     top: 30px;
     right: 40px;
     z-index: 3;
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    background: transparent;
+    border: none;
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
     transition: transform 0.3s ease;
 }
 
@@ -79,16 +86,21 @@ body {
 }
 
 .hero-menu span {
-    width: 28px;
-    height: 3px;
+    width: 50px;
+    height: 10px;
     background: white;
     border-radius: 30px;
     display: block;
+    transition: background 0.3s ease;
+}
+
+.hero-menu:hover span {
+    background: #ffcc00;
 }
 
 .hero-title {
     position: absolute;
-    top: 50px;
+    top: 100px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
@@ -105,7 +117,7 @@ body {
 .page-body {
     width: 100%;
     margin: 0 auto;
-    padding: 40px 0;
+    padding: 40px 390px;
     overflow: visible;
 }
 
@@ -138,6 +150,8 @@ body {
     cursor: pointer;
     width: fit-content;
     flex: 0 0 auto;
+    scroll-snap-align: start;
+    /* ADD THIS */
 }
 
 .manga-card:hover {
@@ -284,4 +298,91 @@ body {
 a.manga-card {
     text-decoration: none;
     color: inherit;
+}
+
+/* ── GENRE SHELF ── */
+.genre-shelf {
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.genre-shelf-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-bottom: 12px;
+}
+
+.genre-shelf-header a {
+    text-decoration: none;
+    color: black;
+}
+
+.genre-shelf-label {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+/* ── SCROLL WRAPPER - Main Container ── */
+.shelf-scroll-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    /* Small padding on sides */
+}
+
+/* ── MANGA ROW ── */
+.manga-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 8px;
+    flex: 1;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    /* ADD THIS */
+    -webkit-overflow-scrolling: touch;
+    /* ADD THIS */
+}
+
+.manga-row::-webkit-scrollbar {
+    display: none;
+}
+
+/* ── CHEVRONS (Positioned beside the cards) ── */
+.shelf-chevron {
+    flex: 0 0 auto;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: none;
+    background: white;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    font-size: 28px;
+    color: #1a1a1a;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    z-index: 2;
+}
+
+.shelf-chevron:hover {
+    background: #1a1a1a;
+    color: white;
+    transform: scale(1.08);
+}
+
+.shelf-chevron.left {
+    margin-right: 8px;
+}
+
+.shelf-chevron.right {
+    margin-left: 8px;
 }

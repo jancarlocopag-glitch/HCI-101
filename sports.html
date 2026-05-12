@@ -6,24 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sports - My Library</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style2.css">
 </head>
 
 <body>
+    <!-- 1. Checkbox -->
+    <input type="checkbox" id="menu-toggle">
+
+    <!-- 2. Overlay -->
+    <label for="menu-toggle" class="menu-overlay"></label>
+
+    <!-- 3. Menu Panel -->
+    <div class="menu-panel">
+        <div class="menu-panel-header">
+            <h2>Menu</h2>
+            <label for="menu-toggle" class="menu-close">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+        <a href="index.html" class="menu-item">Home <span class="menu-chevron">›</span></a>
+        <a href="favorites.html" class="menu-item">Favorites <span class="menu-chevron">›</span></a>
+        <a href="mangaStats.html" class="menu-item">Manga Stats <span class="menu-chevron">›</span></a>
+        <a href="#" class="menu-item">About <span class="menu-chevron">›</span></a>
+
+        <div class="menu-divider"></div>
+        <div class="menu-section-label">Genre</div>
+
+        <a href="romance.html" class="menu-item">Romance <span class="menu-chevron">›</span></a>
+        <a href="action.html" class="menu-item">Action <span class="menu-chevron">›</span></a>
+        <a href="sports.html" class="menu-item">Sports <span class="menu-chevron">›</span></a>
+        <a href="seinen.html" class="menu-item">Seinen <span class="menu-chevron">›</span></a>
+        <a href="adventure.html" class="menu-item">Adventure <span class="menu-chevron">›</span></a>
+    </div>
 
     <!-- HERO BANNER -->
     <div class="genre-hero">
         <img src="mangacover/manga.png" alt="SPORT Banner">
 
-        <!-- Back arrow - Anchor tag version -->
+        <!-- Back arrow -->
         <a href="index.html" class="hero-back">&#8592;</a>
 
-        <!-- Hamburger -->
-        <button class="hero-menu">
+        <!-- Hamburger — label triggers checkbox -->
+        <label for="menu-toggle" class="hero-menu">
             <span></span>
             <span></span>
             <span></span>
-        </button>
+        </label>
 
         <!-- Title -->
         <div class="hero-title">SPORTS</div>
@@ -32,18 +63,6 @@
     <!-- PAGE BODY -->
     <div class="page-body">
 
-        <!-- About This Genre -->
-        <div class="about-box">
-            <h2>About this Genre</h2>
-            <p>Sports manga centers on athletic competition, training, and teamwork, focusing on the journey of athletes
-                as they work hard to improve their skills and achieve their goals. These stories often highlight the
-                dedication, discipline, and perseverance required in sports, showing characters overcoming physical and
-                mental challenges through practice, determination, and support from teammates. Along the way, athletes
-                face intense rivalries, personal setbacks, and moments of self-doubt, which help shape their growth both
-                on and off the field. Through these experiences, sports manga emphasizes themes of personal improvement,
-                sportsmanship, resilience, and the strong bonds formed between teammates who share the same passion for
-                victory.</p>
-        </div>
 
         <!-- My Recommendations -->
         <div class="manga-shelf">
