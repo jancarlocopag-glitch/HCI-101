@@ -345,9 +345,7 @@ a.manga-card {
     flex: 1;
     scrollbar-width: none;
     scroll-snap-type: x mandatory;
-    /* ADD THIS */
     -webkit-overflow-scrolling: touch;
-    /* ADD THIS */
 }
 
 .manga-row::-webkit-scrollbar {

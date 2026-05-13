@@ -263,11 +263,15 @@ body {
 }
 
 .char-scroll-wrapper {
+    /* The outer container — clips the overflow and shows a scrollbar */
     overflow-x: auto;
+    /* shows horizontal scrollbar when content is too wide */
     overflow-y: visible;
     padding: 10px 0 16px;
     scrollbar-width: thin;
+    /* makes the scrollbar thin (Firefox) */
     scrollbar-color: #ccc transparent;
+    /* grey scrollbar, transparent track */
 }
 
 .char-scroll-wrapper::-webkit-scrollbar {

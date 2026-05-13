@@ -1,7 +1,3 @@
-/* ============================================================
-   RESET & BASE
-   Normalizes browser defaults and sets the global font/layout
-============================================================ */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 * {
@@ -24,13 +20,12 @@ body {
 
 /* ============================================================
    HAMBURGER MENU SYSTEM — CHECKBOX TOGGLE
-   Must appear before overlay/panel in CSS since HTML places
-   #menu-toggle before .menu-overlay and .menu-panel
 ============================================================ */
 
-/* Hidden checkbox — the actual toggle state holder */
+/* Hidden checkbox  */
 #menu-toggle {
     display: none;
+    /*pang hide sa checkbox*/
 }
 
 
@@ -329,7 +324,6 @@ body {
 }
 
 /* ── Genre Label ────────────────────────────────────────── */
-/* e.g. "Romance", "Action" — sits on the left side */
 .genre-card span {
     position: absolute;
     left: 50px;

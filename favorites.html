@@ -290,9 +290,16 @@
 
     <script>
         function scrollShelf(rowId, direction) {
-            const row = document.getElementById(rowId);
-            const card = row.querySelector('.manga-card');
+            const row = document.getElementById(rowId); // Get the scrollable manga row element by its ID (e.g., 'romance-row')
+            const card = row.querySelector('.manga-card'); // Find the first manga card inside the row
+
+            // Get the card's width + 20px gap between cards
+            // If no card is found, fall back to 170px as default
             const cardWidth = card ? card.offsetWidth + 20 : 170;
+
+            // Scroll the row left or right
+            // direction is -1 (left) or 1 (right)
+            // Multiplied by 2 so it skips 2 cards per chevron click
             row.scrollBy({ left: direction * cardWidth * 2, behavior: 'smooth' });
         }
     </script>
